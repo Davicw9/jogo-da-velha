@@ -1,10 +1,9 @@
-
 let selecionaDisparado = {};
 
 let jogador1 = jogador('jogador 1', 'X', true);
 let jogador2 = jogador('jogador 2', 'O', false);
-let mensagem1 = 'Vitória do ' + jogador1.name;
-let mensagem2 = 'Vitória do ' + jogador2.name;
+let mensagem1 = 'Vitória de ' + jogador1.name;
+let mensagem2 = 'Vitória de ' + jogador2.name;
 
 let modal = document.getElementById('modal');
 let resultado = document.getElementById('resultado');
@@ -128,7 +127,7 @@ let nomePlayer2 = "";
 
 function selecionarModo(modo){
 
-    let modoDeJogo = modo;
+    modoDeJogo = modo;
 
     document.getElementById("escolha-modo").style.display = "none";
 
@@ -153,7 +152,7 @@ function selecionarModo(modo){
 
 function iniciarJogo(){
 
-    let nomePlayer1 = document.getElementById("player1").value.trim();
+    nomePlayer1 = document.getElementById("player1").value.trim();
 
     if(nomePlayer1 === ""){
         alert("Digite o nome do Player 1");
@@ -162,7 +161,7 @@ function iniciarJogo(){
 
     if(modoDeJogo === 2){
 
-        let nomePlayer2 = document.getElementById("player2").value.trim();
+        nomePlayer2 = document.getElementById("player2").value.trim();
 
         if(nomePlayer2 === ""){
             alert("Digite o nome do Player 2");
@@ -170,7 +169,7 @@ function iniciarJogo(){
         }
 
     }else{
-        let nomePlayer2 = "Computador";
+        nomePlayer2 = "Computador";
     }
 
     jogador1.name = nomePlayer1;
