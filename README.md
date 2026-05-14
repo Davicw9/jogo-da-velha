@@ -2,6 +2,12 @@
 
 Um jogo da velha interativo desenvolvido com HTML, CSS e JavaScript. Suporte para dois jogadores (Player vs Player) com interface responsiva e moderna.
 
+## 🌐 Demo Online
+
+Teste o jogo diretamente na web:
+
+https://jogo-da-velha-zeta-sepia.vercel.app
+
 ## ✨ Funcionalidades
 
 - **Dois Modos de Jogo**
@@ -61,8 +67,12 @@ cd Jogo-Da-velha
 ### 2. Executar o Projeto
 Abra o arquivo `index.html` no navegador ou use um servidor local:
 
+### 3. Teste Online
+Acesse a versão publicada no Vercel:
 
-### 3. Jogar
+https://jogo-da-velha-zeta-sepia.vercel.app
+
+### 4. Jogar
 1. Selecione o modo de jogo (Player vs Player)
 2. Digite os nomes dos jogadores
 3. Clique em "Iniciar jogo"
