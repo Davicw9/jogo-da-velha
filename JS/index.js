@@ -7,6 +7,7 @@ let mensagem2 = 'Vitória de ' + jogador2.name;
 
 let modal = document.getElementById('modal');
 let resultado = document.getElementById('resultado');
+let vezJogador = document.querySelector('#mostrar-vez-jogador');
 
 function mostrarOpcao(event, numeroDiv) {
     if(!selecionaDisparado[numeroDiv]){
@@ -49,6 +50,8 @@ function seleciona(event, numeroDiv){
             jogador1.jogada = true;
         }
     }
+    mostrarVezJogador()
+
     selecionaDisparado[numeroDiv] = true;
     
     let celulas = document.getElementsByClassName('quadrados');
@@ -69,10 +72,12 @@ function seleciona(event, numeroDiv){
             if(!jogador1.jogada){
                 resultado.textContent = mensagem1;
                 modal.style.display = 'flex';
+                vezJogador.style.display = 'none';
                 console.log('Vitória de ', jogador1.name);
             }else{
                 resultado.textContent = mensagem2;
                 modal.style.display = 'flex';
+                vezJogador.style.display = 'none';
                 console.log('Vitória de ', jogador2.name);
             }
             
@@ -87,10 +92,12 @@ function seleciona(event, numeroDiv){
         if(!jogador1.jogada){
             resultado.textContent = mensagem1;
             modal.style.display = 'flex';
+            vezJogador.style.display = 'none';
             console.log('Vitória de ', jogador1.name);
         }else{
             resultado.textContent = mensagem2;
             modal.style.display = 'flex';
+            vezJogador.style.display = 'none';
             console.log('Vitória de ', jogador2.name);
         }
         return;
@@ -111,6 +118,7 @@ function seleciona(event, numeroDiv){
         // Todas as células foram preenchidas e ninguém venceu
         resultado.textContent = 'EMPATE';
         modal.style.display = 'flex';
+        vezJogador.style.display = 'none';
     }
     //return false;
 }
@@ -178,6 +186,9 @@ function iniciarJogo(){
     mensagem1 = 'Vitória de ' + jogador1.name;
     mensagem2 = 'Vitória de ' + jogador2.name;
 
+    mostrarVezJogador()
+
+
     document.getElementById("modal-inicial").style.display = "none";
 }
 
@@ -194,3 +205,13 @@ function voltarEscolhaModo(){
 
     document.getElementById("escolha-modo").style.display = "flex";
 }
+
+function mostrarVezJogador(){
+
+    if(jogador1.jogada){
+        vezJogador.textContent = "Vez do jogador: " + jogador1.name + " (" + jogador1.simbolo + ")";
+    }else{
+        vezJogador.textContent = "Vez do jogador: " + jogador2.name + " (" + jogador2.simbolo + ")";
+    }
+}
+

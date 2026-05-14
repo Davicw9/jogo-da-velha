@@ -6,7 +6,7 @@ body{
     /*background-color: #bf3004;*/
 }
 #jogo-da-velha{
-    margin: 300px;
+    margin: 7rem;
     display: grid;
     grid-template-columns: 120px 120px 120px;
     grid-template-rows: 120px 120px 120px;
@@ -18,6 +18,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .quadrados{
     background-color: #03A696;
@@ -81,10 +82,26 @@ input{
     height: 100%;
     padding: 1rem;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
     box-sizing: border-box;
+    z-index: 100;
+    animation: fadeIn 0.3s ease-in-out;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
 #fechar-modal {
     position: absolute;
     top: 0.75rem;
@@ -92,32 +109,69 @@ input{
     color: #fff;
     cursor: pointer;
 }
-#mensagem{
-    background-color: #ffffff;
-    font-size: clamp(1.75rem, 5vw, 3rem);
-    border: 2px solid blue;
-    border-radius: 10px;
-    width: min(90vw, 420px);
+
+#mensagem {
+    background: rgba(0, 0, 0, 0);
+    font-size: clamp(1.75rem, 5vw, 6rem);
+    border-radius: 16px;
+    width: min(90vw, 480px);
     max-width: 100%;
     box-sizing: border-box;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-#resultado{
-    margin: clamp(1rem, 3vw, 1.5rem);
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-#reiniciar{
+
+#resultado {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+}
+
+#reiniciar {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1.5rem;
-    width: min(100%, 240px);
-    height: min(80px, 10vh);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    border: 2px solid blue;
-    border-radius: 10px;
-    background-color: #253659;
+    margin-top: 2rem;
+    width: min(100%, 260px);
+    height: min(65px, 8vh);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #253659 0%, #1a254a 100%);
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(37, 54, 89, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
-#reiniciar:hover{
-    background-color: #253659;
+
+#reiniciar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37, 54, 89, 0.6);
+    background: linear-gradient(135deg, #1a254a 0%, #0f1729 100%);
+}
+
+#reiniciar:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(37, 54, 89, 0.4);
 }
 #modal-inicial{
     position: fixed;
@@ -217,4 +271,21 @@ input{
     flex-direction: column;
     gap: 15px;
     font-size: 1.3rem;
+}
+#titulo{
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#mostrar-vez-jogador{
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: #ffffff;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
