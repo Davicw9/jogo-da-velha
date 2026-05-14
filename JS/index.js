@@ -1,7 +1,7 @@
 let selecionaDisparado = {};
 
-let jogador1 = jogador('jogador 1', 'X', true);
-let jogador2 = jogador('jogador 2', 'O', false);
+let jogador1 = new Jogador('jogador 1', 'X', true);
+let jogador2 = new Jogador('jogador 2', 'O', false);
 let mensagem1 = 'Vitória de ' + jogador1.name;
 let mensagem2 = 'Vitória de ' + jogador2.name;
 
@@ -116,7 +116,7 @@ function seleciona(event, numeroDiv){
 
     if (todasPreenchidas) {
         // Todas as células foram preenchidas e ninguém venceu
-        resultado.textContent = 'EMPATE';
+        resultado.innerHTML = 'EMPATE<br>Deu Velha';
         modal.style.display = 'flex';
         vezJogador.style.display = 'none';
     }

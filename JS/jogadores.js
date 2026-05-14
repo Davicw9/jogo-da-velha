@@ -1,7 +1,7 @@
-function jogador(name, simbolo, jogada){
-    return{
-        name,
-        simbolo,
-        jogada
+class Jogador {
+    constructor(name, simbolo, jogada) {
+        this.name = name;
+        this.simbolo = simbolo;
+        this.jogada = jogada;
     }
 }
